@@ -1,6 +1,6 @@
 import time
 from flask import Flask, request
-import comment_scraper
+import src.comment_scraper
 
 
 app = Flask(__name__)

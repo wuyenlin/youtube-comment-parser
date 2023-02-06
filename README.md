@@ -3,7 +3,7 @@
 This python script allows you to scrap all the comments given a youtube video link and save them into a `csv` file.
 
 ## Pre-requisite
-You will need to install [Postman](https://www.postman.com/) in order to make use of this app.
+You will need to install ![Postman](https://www.postman.com/) in order to make use of this app.
 
 
 ## Getting started

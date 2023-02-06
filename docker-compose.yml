@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  ls:
+    container_name: triple-ls-dev
+    image: node:16
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args: 
+        START_COMMAND: start:watch
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/usr/app
+      - /home/usr/app/node_modules
+
+    # depends_on:
+    #   database:
+    #     condition: db
+
+
+#   db:
+#     image: mysql:8.0
+#     restart: always
+#     environment:
+#       - MYSQL_DATABASE=
+#       - MYSQL_ROOT_PASSWORD=
+#     ports:
+#       - '3306:3306'
+#     volumes:
+#       - db:/var/lib/mysql
+
+# volumes:
+#   db:
+#     driver: local

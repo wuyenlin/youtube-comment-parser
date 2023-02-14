@@ -1,6 +1,5 @@
-import time
 from flask import Flask, request
-import comment_scraper
+from src.scrape_comments import scrape_comments
 
 
 app = Flask(__name__)
@@ -10,11 +9,11 @@ def get_result():
     request_data = request.get_json()
     url = request_data["url"]
 
-    res=False
+    res = False
 
     if(url):
-        res=comment_scraper.scrape_comments(url)
-    if(res==False):
-        return {'error': "Something went wrong"}
+        res = scrape_comments(url)
+    if(res == False):
+        return {'error': "Something went wrong" }
     else: 
-        return {'response': res}
+        return {'response': res }

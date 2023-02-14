@@ -1,11 +1,8 @@
 from googleapiclient.discovery import build
-from urllib.parse import urlparse, parse_qs
 import pandas as pd
 import os
-import time
 from dotenv import load_dotenv
 load_dotenv()
-
 
 def video_comments(video_id,api_key):
 
@@ -51,29 +48,18 @@ def video_comments(video_id,api_key):
 
         df = pd.DataFrame(dfa)
 
-        path = "data/"+video_id+".csv"
-        full_path = os.path.abspath(path)  # get the FULL path
+        create_data_folder()
+        path = "data/" + video_id + ".csv"
+        full_path = os.path.abspath(path)
 
         df.to_csv(path)
         return full_path
 
     except:
         return False
-    
 
-
-def get_video_id(url):
-    u_pars = urlparse(url)
-    quer_v = parse_qs(u_pars.query).get('v')
-    if quer_v:
-        return quer_v[0]
-    pth = u_pars.path.split('/')
-    if pth:
-        return pth[-1]
-  
-
-def scrape_comments(url):
-    api_key = os.getenv('GOOGLE_API_KEY')
-    video_id = get_video_id(url)
-    res = video_comments(video_id,api_key)
-    return res
+def create_data_folder():
+    try:
+        os.mkdir("data")
+    except:
+        pass

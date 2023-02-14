@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 ### Get google API key
-Follow the instructions in this ![link](https://support.google.com/googleapi/answer/6158862?hl=en) to obtain the API key.
+Follow the instructions in this [link](https://support.google.com/googleapi/answer/6158862?hl=en) to obtain the API key.
 
 Specifically, in `Google API Console`, navigate to `YouTube Data API v3` and in the `credential` tab create an API key.
 
